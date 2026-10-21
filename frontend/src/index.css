@@ -1,0 +1,1331 @@
+/* ========================================
+   GLOBAL STYLES
+======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #0875d1;
+  --primary-dark: #075eaa;
+  --primary-light: #eaf4ff;
+
+  --sidebar: #10263f;
+  --sidebar-text: #c0cfdf;
+  --sidebar-active: #ffffff;
+
+  --background: #f4f7fb;
+  --surface: #ffffff;
+
+  --text: #172b4d;
+  --muted: #71819a;
+
+  --border: #e3ebf5;
+
+  --green: #16864b;
+  --green-bg: #e8fbf0;
+
+  --yellow: #a96800;
+  --yellow-bg: #fff7e7;
+
+  --red: #d83232;
+  --red-bg: #fff0f0;
+
+  --radius: 12px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+a {
+  color: inherit;
+}
+
+/* ========================================
+   APPLICATION LAYOUT
+======================================== */
+
+.app-layout {
+  min-height: 100vh;
+}
+
+.main-area {
+  min-height: 100vh;
+  margin-left: 240px;
+  background: var(--background);
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 27px 16px;
+  background: var(--sidebar);
+  color: white;
+}
+
+.sidebar-logo {
+  padding: 0 16px;
+  margin-bottom: 45px;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.sidebar-logo span {
+  color: #55bfd0;
+}
+
+.nav-section {
+  padding: 0 16px;
+  margin: 26px 0 12px;
+  color: #849ab0;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 11px 16px;
+  margin-bottom: 4px;
+  border-radius: 7px;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  background: rgb(255 255 255 / 7%);
+  color: white;
+}
+
+.nav-item.active {
+  background: #0875d1;
+  color: white;
+  font-weight: 700;
+}
+
+/* ========================================
+   TOP HEADER
+======================================== */
+
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 74px;
+  padding: 12px 32px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #172b4d;
+}
+
+.header-subtitle {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.admin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-info {
+  text-align: right;
+}
+
+.admin-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-role {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.admin-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e6f4fb;
+  color: #0875d1;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ========================================
+   PAGE LAYOUT
+======================================== */
+
+.page {
+  width: 100%;
+  max-width: 1600px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.page-header h1 {
+  color: #172b4d;
+  font-size: 29px;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+.page-header p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ========================================
+   STATISTICS CARDS
+======================================== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 3px 12px rgb(30 60 100 / 3%);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgb(30 60 100 / 7%);
+}
+
+.stat-label {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat-value {
+  color: #172b4d;
+  font-size: 29px;
+  font-weight: 750;
+}
+
+/* ========================================
+   CONTENT CARDS
+======================================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 22px;
+  margin-bottom: 25px;
+}
+
+.card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 3px 12px rgb(30 60 100 / 3%);
+}
+
+.card-header {
+  margin-bottom: 22px;
+}
+
+.card-title {
+  color: #172b4d;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.card-description {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ========================================
+   STATUS OVERVIEW
+======================================== */
+
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.status-name {
+  font-size: 13px;
+}
+
+.status-number {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.progress {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #edf1f7;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.progress-green {
+  background: #20a464;
+}
+
+.progress-yellow {
+  background: #f0a52b;
+}
+
+.progress-red {
+  background: #e5484d;
+}
+
+/* ========================================
+   SUMMARY
+======================================== */
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-item {
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.summary-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.summary-value {
+  margin-top: 6px;
+  color: #172b4d;
+  font-size: 23px;
+  font-weight: 750;
+}
+
+/* ========================================
+   TABLE CONTAINERS
+======================================== */
+
+.table-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 3px 12px rgb(30 60 100 / 3%);
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 21px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-title {
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: #f1f7fd;
+}
+
+th {
+  padding: 15px 18px;
+  color: #536781;
+  font-size: 11px;
+  font-weight: 750;
+  text-align: left;
+  white-space: nowrap;
+}
+
+td {
+  padding: 16px 18px;
+  border-top: 1px solid #edf1f7;
+  color: #435671;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #f8fbff;
+}
+
+/* ========================================
+   FORMS
+======================================== */
+
+form {
+  margin: 0;
+}
+
+form label {
+  display: block;
+  margin-bottom: 7px;
+  color: #253a59;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  color: #253a59;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  min-height: 40px;
+  padding: 10px 12px;
+  border: 1px solid #d7e2f0;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus,
+textarea:focus {
+  border-color: #2585e5;
+  box-shadow: 0 0 0 3px rgb(37 133 229 / 10%);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9aa9bc;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+form input,
+form select {
+  max-width: 100%;
+}
+
+/* Support simple forms that place fields directly inside form */
+form:has(> input),
+form:has(> select) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+form:has(> input) > input,
+form:has(> select) > input,
+form:has(> input) > select,
+form:has(> select) > select {
+  flex: 1 1 150px;
+  width: auto;
+  min-width: 130px;
+}
+
+form:has(> input) > button,
+form:has(> select) > button {
+  flex: 0 0 auto;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+button {
+  border-radius: 7px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+button[type="submit"],
+button.primary-button,
+.primary-button {
+  padding: 11px 18px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+button[type="submit"]:hover,
+button.primary-button:hover,
+.primary-button:hover {
+  border-color: var(--primary-dark);
+  background: var(--primary-dark);
+}
+
+button:not([type="submit"]):not(.nav-item) {
+  font-size: 12px;
+}
+
+button:not([type="submit"]):not(.nav-item):not(.primary-button):not(.edit-button):not(.delete-button):not(.marine-edit-button):not(.marine-delete-button) {
+  padding: 9px 13px;
+}
+
+button.edit-button,
+button.marine-edit-button {
+  padding: 8px 12px;
+  border: 1px solid #b9d8ff;
+  background: white;
+  color: #0875d1;
+  font-weight: 700;
+}
+
+button.edit-button:hover,
+button.marine-edit-button:hover {
+  background: #eaf4ff;
+}
+
+button.delete-button,
+button.marine-delete-button {
+  padding: 8px 12px;
+  border: 1px solid #ffc8c8;
+  background: white;
+  color: #d93e45;
+  font-weight: 700;
+}
+
+button.delete-button:hover,
+button.marine-delete-button:hover {
+  background: #fff0f0;
+}
+
+/* ========================================
+   STATUS BADGES
+======================================== */
+
+.badge,
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.healthy,
+.active,
+.growing {
+  border-color: #b8ebcd;
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.warning,
+.monitoring,
+.stable {
+  border-color: #ffdda0;
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+
+.critical,
+.inactive,
+.declining {
+  border-color: #ffc5c5;
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+/* ========================================
+   EMPTY STATES
+======================================== */
+
+.empty-state,
+.marine-empty {
+  padding: 38px 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-state h3,
+.marine-empty h3 {
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+/* ========================================
+   MARINE RESOURCES PAGE
+======================================== */
+
+.marine-page {
+  width: 100%;
+  max-width: 1600px;
+  padding: 30px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+.marine-page * {
+  box-sizing: border-box;
+}
+
+.marine-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.marine-eyebrow {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.marine-heading h1 {
+  margin: 6px 0;
+  font-size: 30px;
+  font-weight: 750;
+}
+
+.marine-heading p,
+.marine-section-heading p,
+.records-heading p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.marine-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid #dceafb;
+  border-radius: 12px;
+  background: #f0f7ff;
+}
+
+.count-icon,
+.section-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #e0efff;
+  color: var(--primary);
+  font-size: 24px;
+}
+
+.marine-count strong,
+.marine-count div > span {
+  display: block;
+}
+
+.marine-count strong {
+  color: var(--primary);
+  font-size: 22px;
+}
+
+.marine-count div > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.marine-card {
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 16px rgb(30 60 100 / 4%);
+}
+
+.marine-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 24px;
+}
+
+.marine-section-heading h2,
+.records-heading h2 {
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.marine-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 22px;
+}
+
+.marine-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.marine-form label > span {
+  color: #e5484d;
+}
+
+.marine-form input,
+.marine-form select {
+  width: 100%;
+  min-height: 43px;
+}
+
+.marine-form textarea {
+  min-height: 85px;
+}
+
+.description-field {
+  grid-column: span 2;
+}
+
+.marine-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+.marine-primary-button {
+  padding: 11px 19px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.marine-primary-button:hover {
+  background: var(--primary-dark);
+}
+
+.marine-cancel-button {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--muted);
+}
+
+.records-card {
+  padding-bottom: 15px;
+}
+
+.records-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.records-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marine-search {
+  width: 240px;
+}
+
+.marine-filter {
+  width: 155px;
+}
+
+.marine-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.marine-table th {
+  padding: 14px;
+}
+
+.marine-table td {
+  padding: 14px;
+}
+
+.resource-name {
+  min-width: 145px;
+  white-space: nowrap;
+}
+
+.resource-name strong {
+  color: var(--text);
+}
+
+.resource-symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #eaf4ff;
+  color: var(--primary);
+  font-size: 22px;
+  vertical-align: middle;
+}
+
+.resource-description {
+  min-width: 160px;
+  max-width: 250px;
+}
+
+.resource-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.condition-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.condition-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.condition-badge.healthy {
+  border-color: #b8ebcd;
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.condition-badge.warning {
+  border-color: #ffdda0;
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+
+.condition-badge.critical {
+  border-color: #ffc5c5;
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.records-footer {
+  padding-top: 14px;
+  color: #8795a8;
+  font-size: 11px;
+}
+
+.marine-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #c9e2ff;
+  border-radius: 9px;
+  background: #f0f7ff;
+  color: #185b99;
+  font-size: 13px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .marine-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .description-field {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-area {
+    margin-left: 0;
+  }
+
+  .page,
+  .marine-page {
+    padding: 20px 15px;
+  }
+
+  .top-header {
+    padding: 12px 16px;
+  }
+
+  .page-header,
+  .marine-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-header h1,
+  .marine-heading h1 {
+    font-size: 25px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .marine-form {
+    grid-template-columns: 1fr;
+  }
+
+  .description-field,
+  .marine-form-actions {
+    grid-column: auto;
+  }
+
+  .records-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .records-tools {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .marine-search,
+  .marine-filter {
+    width: 100%;
+  }
+
+  .marine-table {
+    min-width: 850px;
+  }
+
+  .table-card table {
+    min-width: 650px;
+  }
+
+  .admin-info {
+    display: none;
+  }
+
+  .content-grid {
+    gap: 15px;
+  }
+
+  .card,
+  .marine-card {
+    padding: 17px;
+  }
+}
+
+@media (max-width: 420px) {
+  .marine-count {
+    width: 100%;
+  }
+
+  .marine-form-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .marine-primary-button,
+  .marine-cancel-button {
+    width: 100%;
+  }
+}
+/* Alerts page statistics */
+.marine-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.marine-stat-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 3px 12px rgba(16, 38, 63, 0.04);
+}
+
+.marine-stat-label {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.marine-stat-value {
+  color: #10263f;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.marine-stat-note {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/* Description field */
+.marine-field-full {
+  grid-column: 1 / -1;
+}
+
+.marine-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #dbe3ec;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #10263f;
+  font: inherit;
+  resize: vertical;
+  min-height: 90px;
+}
+
+.marine-field textarea:focus {
+  outline: none;
+  border-color: #0875d1;
+  box-shadow: 0 0 0 3px rgba(8, 117, 209, 0.1);
+}
+
+/* Alert severity badges */
+.marine-status-badge.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.marine-status-badge.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.marine-status-badge.low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.marine-status-badge.read {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.marine-status-badge.unread {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.marine-description-cell {
+  min-width: 180px;
+  max-width: 300px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1000px) {
+  .marine-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .marine-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .marine-field-full {
+    grid-column: auto;
+  }
+}
+/* Dashboard layout */
+.marine-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.marine-health-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 12px;
+}
+
+.marine-health-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.marine-health-heading strong {
+  color: #10263f;
+}
+
+.marine-health-track {
+  width: 100%;
+  height: 9px;
+  background: #edf1f5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.marine-health-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.healthy-fill {
+  background: #16a34a;
+}
+
+.warning-fill {
+  background: #f59e0b;
+}
+
+.critical-fill {
+  background: #dc2626;
+}
+
+/* Economic overview */
+.marine-overview-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.marine-overview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 17px 0;
+  border-bottom: 1px solid #edf1f5;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.marine-overview-item:last-child {
+  border-bottom: none;
+}
+
+.marine-overview-item strong {
+  color: #10263f;
+  font-size: 18px;
+}
+
+.marine-text-green {
+  color: #16803c !important;
+}
+
+/* Recent alerts */
+.marine-alert-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.marine-alert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.marine-alert-item:last-child {
+  border-bottom: none;
+}
+
+.marine-alert-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.marine-alert-content strong {
+  color: #10263f;
+  font-size: 15px;
+}
+
+.marine-alert-content > span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.marine-alert-content p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.marine-alert-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Fallback badge for unknown statuses */
+.badge.default {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+@media (max-width: 900px) {
+  .marine-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .marine-alert-item {
+    flex-direction: column;
+  }
+
+  .marine-alert-meta {
+    justify-content: flex-start;
+  }
+}
